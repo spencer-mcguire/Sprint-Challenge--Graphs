@@ -44,19 +44,25 @@ s.push([player.current_room.id])
 
 while len(player.current_room.get_exits()) != 1:
     path = s.pop()
-    print(path)
+    #print(path)
     curr_room = path[-1]
-    print(curr_room)
 
     if curr_room not in visited:
         visited[curr_room] = {}
         for direction in player.current_room.get_exits():
-            print(direction)
+            #print(direction)
             visited[curr_room][direction] = '?'
-            print(visited)
-    
+            #print(visited)
+    ran_dir = random.choice(list(visited[curr_room].keys()))
+    visited[curr_room][ran_dir] = player.current_room.get_room_in_direction(ran_dir).id
 
+    # move the ran dir
+    old_room = curr_room
+    player.travel(ran_dir)
+    traversal_path.append(ran_dir)
+    visited[curr_room]
 
+    print(visited)
 # print('traversal_path:',traversal_path)
 # TRAVERSAL TEST - DO NOT MODIFY
 visited_rooms = set()
