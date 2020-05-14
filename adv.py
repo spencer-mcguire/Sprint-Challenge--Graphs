@@ -52,7 +52,9 @@ while len(player.current_room.get_exits()) != 1:
         visited[curr_room] = {}
         for direction in player.current_room.get_exits():
             print(direction)
-
+            visited[curr_room][direction] = '?'
+            print(visited)
+    
 
 
 # print('traversal_path:',traversal_path)
